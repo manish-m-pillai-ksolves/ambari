@@ -46,6 +46,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "rc-slider/assets/index.css";
 import Select from "react-select";
+import { themedSelectStyles } from "../../Utils/selectStyles";
 import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
 import CustomSlider from "../../components/CustomSlider";
@@ -1198,6 +1199,7 @@ export default function Config({
             ) : (
               <div className="flex-grow-1">
                 <Select
+                  styles={themedSelectStyles()}
                   value={{ label: property.value, value: property.value }}
                   onChange={(newValue) => {
                     onChange(newValue?.value);

@@ -298,7 +298,7 @@ const DashboardLayout = () => {
               isSidebarCollapsed ? "main-content-collapsed" : "main-content"
             }`}
             style={{
-              background: "#e6e6e6",
+              background: "var(--ambari-content-bg)",
               maxHeight: "100%",
               overflowY: "scroll",
               height: "100%",

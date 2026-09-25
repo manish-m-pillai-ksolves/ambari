@@ -25,6 +25,7 @@ import { misc } from "../Utils/misc";
 import Spinner from "./Spinner";
 import { filter, get, map, uniq } from "lodash";
 import Select from "react-select";
+import { themedSelectStyles } from "../Utils/selectStyles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { blueprintUtils } from "../screens/ClusterWizard/utils";
@@ -649,6 +650,7 @@ export default function AssignMasters({
                           </Col>
                           <Col xs={4}>
                             <Select
+                              styles={themedSelectStyles()}
                               id={`select-${component}`}
                               value={{ label: hostname, value: hostname }}
                               onChange={(selectedOption) => {

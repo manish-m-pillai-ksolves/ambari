@@ -55,6 +55,7 @@ import OperationsProgress from "../../../components/OperationsProgress";
 import usePolling from "../../../hooks/usePolling";
 import Tooltip from "../../../components/Tooltip";
 import Select from "react-select";
+import { themedSelectStyles } from "../../../Utils/selectStyles";
 import { AppContext } from "../../../store/context";
 import modalManager from "../../../store/ModalManager";
 import Upgrade from "./Upgrade";
@@ -2153,6 +2154,7 @@ export default function Versions() {
                 </Button>
            )}
                <Select
+               styles={themedSelectStyles()}
                className="ms-3"
                 value={{
                   value: selectedOption.key,

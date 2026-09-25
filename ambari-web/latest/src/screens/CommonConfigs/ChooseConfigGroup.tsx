@@ -18,6 +18,7 @@
 
 import { useContext, useEffect, useState, useMemo } from "react";
 import Select from "react-select";
+import { themedSelectStyles } from "../../Utils/selectStyles";
 import { AppContext } from "../../store/context";
 import ConfigGroupApi from "../../api/configGroupApi";
 import { get } from "lodash";
@@ -222,12 +223,12 @@ export default function ChooseConfigGroup({
             loadingMessage={() => "Loading config groups..."}
             placeholder={loading ? "Loading..." : "Select config group"}
             menuPortalTarget={document.body}
-            styles={{
+            styles={themedSelectStyles({
               menuPortal: (provided) => ({
                 ...provided,
                 zIndex: 9999,
               }),
-            }}
+            })}
           />
         </div>
       </div>

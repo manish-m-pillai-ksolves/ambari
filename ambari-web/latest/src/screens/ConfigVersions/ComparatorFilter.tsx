@@ -17,6 +17,7 @@
  */
 
 import Select from "react-select";
+import { themedSelectStyles } from "../../Utils/selectStyles";
 import { FilterLevels } from "./constants";
 
 
@@ -56,6 +57,7 @@ function ComparatorFilter({
   return (
     <>
       <Select
+        styles={themedSelectStyles()}
         options={options}
         isMulti
         className="w-50"

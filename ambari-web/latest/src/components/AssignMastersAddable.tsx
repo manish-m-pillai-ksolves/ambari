@@ -39,6 +39,7 @@ import {
 } from "lodash";
 import { groupPropertyValues } from "../Utils/dataUtils";
 import Select from "react-select";
+import { themedSelectStyles } from "../Utils/selectStyles";
 import AssignMastersApi from "../api/assignMastersApi";
 import { isShownOnAddServiceAssignMasterPage, role } from "../Utils/Utility";
 import { displayOrder } from "../screens/ClusterWizard/constants";
@@ -2054,6 +2055,7 @@ function AssignMastersAddable({
                           addableMaster.selectedHost
                         ) : (
                           <Select
+                            styles={themedSelectStyles()}
                             className="w-100"
                             isDisabled={addableMaster.isInstalled}
                             options={getHostOptionsFor(index)}
@@ -2123,6 +2125,7 @@ function AssignMastersAddable({
                       <Row className="align-items-center">
                         <Col md={8}>
                           <Select
+                            styles={themedSelectStyles()}
                             className="w-100"
                             isDisabled={addableMaster.isInstalled}
                             options={getHostOptionsFor(index)}

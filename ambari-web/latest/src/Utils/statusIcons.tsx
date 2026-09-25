@@ -53,13 +53,17 @@ type StatusIconConfig = {
   shouldShowOpacity?: boolean;
 };
 
+// Blue and green are too dark on the dark theme; light mode keeps the named colors.
+const STATUS_BLUE = "var(--ambari-status-blue, blue)";
+const STATUS_GREEN = "var(--ambari-status-green, green)";
+
 const STATUS_ICON_MAP: Record<RequestStatus, StatusIconConfig> = {
-  INIT: { icon: faCogs, color: "blue" },
+  INIT: { icon: faCogs, color: STATUS_BLUE },
   PENDING: { icon: faCog, color: "gray", shouldShowOpacity: true },
   QUEUED: { icon: faCog, color: "gray" },
-  IN_PROGRESS: { icon: faCogs, color: "blue" },
+  IN_PROGRESS: { icon: faCogs, color: STATUS_BLUE },
   CURRENTLY_EXECUTING: { icon: faCheck, color: "#28a745" }, // Green checkmark for currently executing
-  COMPLETED: { icon: faCheck, color: "green" },
+  COMPLETED: { icon: faCheck, color: STATUS_GREEN },
   FAILED: { icon: faExclamation, color: "red" },
   HOLDING_FAILED: { icon: faExclamation, color: "red" },
   SKIPPED_FAILED: { icon: faTimes, color: "red" },
@@ -74,7 +78,7 @@ const STATUS_ICON_MAP: Record<RequestStatus, StatusIconConfig> = {
 
 const DEFAULT_STATUS_CONFIG: StatusIconConfig = {
   icon: faCog,
-  color: "blue",
+  color: STATUS_BLUE,
   shouldShowOpacity: true,
 };
 
@@ -91,7 +95,7 @@ export const getStatusIcon = (
   return (
     <FontAwesomeIcon
       icon={icon}
-      color={color}
+      style={{ color }}
       className={classNames("me-2", { "opacity-50": shouldShowOpacity })}
     />
   );

@@ -965,7 +965,7 @@ function Step3() {
                                   >
                                     <span
                                       style={{
-                                        color: isFinal ? "#007bff" : "#6c757d",
+                                        color: isFinal ? "#007bff" : "var(--ambari-text-secondary)",
                                       }}
                                       title={
                                         isFinal
