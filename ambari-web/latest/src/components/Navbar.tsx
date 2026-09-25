@@ -53,6 +53,7 @@ import { clusterNavigationEnabled } from "../Utils/authPolicy";
 import { openViewInstance, ViewInstance } from "../Utils/viewUtils";
 import DigitalClock from "./DigitalClock";
 import LanguageSelector from "./LanguageSelector";
+import ThemeToggle from "./ThemeToggle";
 import { useTranslation } from "react-i18next";
 import useClusterPath from "../hooks/useClusterPath";
 
@@ -236,16 +237,16 @@ export default function NavBar({
           onClose={() => setShowUserSettingsModal(false)}
         />
       )}
-      <Navbar id="top-nav" collapseOnSelect expand="lg" className="bg-white">
+      <Navbar id="top-nav" collapseOnSelect expand="lg" className="bg-body">
         <Container className="d-flex flex-wrap gap-2 justify-content-between">
           <Navbar.Brand
-            className="text-black m-0 breadcrumb d-flex align-items-center"
+            className="text-body-emphasis m-0 breadcrumb d-flex align-items-center"
             style={{ fontSize: 24 }}
           >
             <div className="navbar-text ms-1 d-flex" style={{ fontSize: 24 }}>
               <button
                 aria-label={t("directory.home")}
-                className="btn btn-link text-black me-1 p-0"
+                className="btn btn-link text-body-emphasis me-1 p-0"
                 onClick={() => navigate(clusterNavigation ? scopedPath(homePath) : homePath)}
                 type="button"
               >
@@ -359,6 +360,8 @@ export default function NavBar({
                 </Dropdown.Menu>
               </Dropdown>
             )}
+            <div style={{ width: "20px" }}></div>
+            <ThemeToggle />
             <div style={{ width: "20px" }}></div>
             <Dropdown>
               <Dropdown.Toggle

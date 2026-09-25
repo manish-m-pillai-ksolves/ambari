@@ -16,16 +16,27 @@
  * limitations under the License.
  */
 
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.tsx'
-import "./i18n.js"
-import { applyTheme, getStoredTheme } from './Utils/theme'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+import { useTranslation } from "react-i18next";
+import { useTheme } from "../hooks/useTheme";
 
-applyTheme(getStoredTheme())
+export default function ThemeToggle() {
+  const { t } = useTranslation();
+  const { theme, toggleTheme } = useTheme();
+  const isDark = theme === "dark";
+  const label = isDark ? t("app.theme.switchToLight") : t("app.theme.switchToDark");
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+  return (
+    <button
+      type="button"
+      className="btn btn-link navbar-text navbar-size p-0 flex-shrink-0"
+      aria-label={label}
+      aria-pressed={isDark}
+      title={label}
+      onClick={toggleTheme}
+    >
+      <FontAwesomeIcon icon={isDark ? faSun : faMoon} />
+    </button>
+  );
+}

@@ -16,16 +16,10 @@
  * limitations under the License.
  */
 
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.tsx'
-import "./i18n.js"
-import { applyTheme, getStoredTheme } from './Utils/theme'
+import { useContext } from "react";
+import ThemeContext from "../store/ThemeContext";
 
-applyTheme(getStoredTheme())
-
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+/**
+ * Custom hook for reading and changing the UI theme
+ */
+export const useTheme = () => useContext(ThemeContext);

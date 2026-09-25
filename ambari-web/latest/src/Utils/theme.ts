@@ -16,16 +16,33 @@
  * limitations under the License.
  */
 
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.tsx'
-import "./i18n.js"
-import { applyTheme, getStoredTheme } from './Utils/theme'
+export type Theme = "light" | "dark";
 
-applyTheme(getStoredTheme())
+export const THEME_STORAGE_KEY = "ambariTheme";
+export const DEFAULT_THEME: Theme = "light";
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+export const isTheme = (value: unknown): value is Theme =>
+  value === "light" || value === "dark";
+
+export const getStoredTheme = (): Theme => {
+  try {
+    const value = localStorage.getItem(THEME_STORAGE_KEY);
+    return isTheme(value) ? value : DEFAULT_THEME;
+  } catch {
+    return DEFAULT_THEME;
+  }
+};
+
+export const setStoredTheme = (theme: Theme) => {
+  try {
+    localStorage.setItem(THEME_STORAGE_KEY, theme);
+  } catch {
+    // Theme switching must still work when browser storage is blocked.
+  }
+};
+
+export const applyTheme = (theme: Theme) => {
+  if (typeof document !== "undefined") {
+    document.documentElement.setAttribute("data-bs-theme", theme);
+  }
+};

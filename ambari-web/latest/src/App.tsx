@@ -22,20 +22,31 @@ import { HelmetProvider } from "react-helmet-async";
 import { Toaster } from "react-hot-toast";
 import RoutesList from "./router/RoutesList";
 import { UserProvider } from "./store/UserContext";
+import { ThemeProvider } from "./store/ThemeContext";
 import Spinner from "./components/Spinner";
 import "./styles/app.scss";
 
 const router = createHashRouter(RoutesList);
 
+// The fallbacks are the react-hot-toast defaults, so only dark mode changes.
+const toastOptions = {
+  style: {
+    background: "var(--ambari-toast-bg, #fff)",
+    color: "var(--ambari-toast-color, #363636)",
+  },
+};
+
 function App() {
   return (
     <HelmetProvider>
-      <Suspense fallback={<Spinner />}>
-        <UserProvider>
-          <Toaster />
-          <RouterProvider router={router} />
-        </UserProvider>
-      </Suspense>
+      <ThemeProvider>
+        <Suspense fallback={<Spinner />}>
+          <UserProvider>
+            <Toaster toastOptions={toastOptions} />
+            <RouterProvider router={router} />
+          </UserProvider>
+        </Suspense>
+      </ThemeProvider>
     </HelmetProvider>
   );
 }
