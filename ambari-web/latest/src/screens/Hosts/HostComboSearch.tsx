@@ -18,6 +18,7 @@
 
 import { useContext, useEffect, useState } from "react";
 import Select from "react-select";
+import { themedSelectStyles } from "../../Utils/selectStyles";
 import { get, isEmpty } from "lodash";
 import { Badge, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -430,6 +431,7 @@ function HostComboSearch({
               className="d-flex w-100 align-items-center"
             >
               <Select
+                styles={themedSelectStyles()}
                 value={selectedField}
                 onChange={(value) => {
                   setSelectedField(value as FilterField);
@@ -441,6 +443,7 @@ function HostComboSearch({
                 menuPortalTarget={document.body}
               />
               <Select
+                styles={themedSelectStyles()}
                 value={selectedValue}
                 options={valueOptions}
                 placeholder="Select Value"

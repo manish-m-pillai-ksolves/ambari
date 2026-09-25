@@ -43,7 +43,7 @@
 }
 
 .editable-list-container.well.disabled {
-  background: white;
+  background: var(--bs-body-bg);
 }
 
 .editable-list-container.edit-mode:hover .pencil-box {
@@ -76,8 +76,8 @@
   right: 5px;
   bottom: -42px;
   padding: 2px 5px 5px 5px;
-  background: #f5f5f5;
-  border: 1px solid #e3e3e3;
+  background: var(--ambari-surface-muted);
+  border: 1px solid var(--ambari-border-panel);
   border-top: none;
   border-radius: 0 0 4px 4px;
   -webkit-transition: all 0.3s;
@@ -104,7 +104,7 @@
 }
 
 .editable-list-container .actions-panel .btn-default svg {
-  color: #000;
+  color: var(--bs-emphasis-color);
 }
 
 .editable-list-container .actions-panel .btn-primary svg {
@@ -121,15 +121,15 @@
   display: inline-block;
   padding: 4px 8px;
   margin: 0 5px 5px 2px;
-  background: white;
-  border: 1px solid #ebebeb;
+  background: var(--bs-body-bg);
+  border: 1px solid var(--ambari-border-item);
   max-width: 100%;
   white-space: nowrap;
   position: relative;
 }
 
 .editable-list-container .items-box ul.items-list li.item.add-item {
-  color: #ddd;
+  color: var(--ambari-text-faint);
 }
 
 .editable-list-container .items-box ul.items-list li.item.deletable {
@@ -137,11 +137,11 @@
 }
 
 .editable-list-container .items-box ul.items-list li.item.global {
-  background-color: #f5f5f5;
+  background-color: var(--ambari-surface-muted);
 }
 
 .editable-list-container .items-box ul.items-list li.item a {
-  color: #555;
+  color: var(--ambari-text-item);
   text-decoration: none;
 }
 
@@ -155,7 +155,7 @@
   border: none;
   font-size: 18px;
   line-height: 1;
-  color: #000;
+  color: var(--bs-emphasis-color);
   text-shadow: 0 1px 0 #fff;
   opacity: 0.2;
   cursor: pointer;
@@ -166,7 +166,7 @@
 
 .editable-list-container .items-box ul.items-list li.item .close:hover,
 .editable-list-container .items-box ul.items-list li.item .close:focus {
-  color: #000;
+  color: var(--bs-emphasis-color);
   text-decoration: none;
   cursor: pointer;
   opacity: 0.5;
@@ -186,8 +186,8 @@
   position: absolute;
   left: 0;
   margin-top: 5px;
-  background: white;
-  border: 1px solid #ebebeb;
+  background: var(--bs-body-bg);
+  border: 1px solid var(--ambari-border-item);
   z-index: 1000;
   min-width: 65px;
   max-height: 150px;
@@ -208,5 +208,5 @@
 
 .typeahead-box ul li.selected,
 .typeahead-box ul li:hover {
-  background: #eee;
+  background: var(--ambari-list-hover-bg);
 }

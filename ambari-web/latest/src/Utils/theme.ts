@@ -16,16 +16,33 @@
  * limitations under the License.
  */
 
-$primary: #3fae2a;
-$secondary: #323544;
-$tertiary: #b8bec4;
-$disabled: #666;
-$redirect-link-color: #0000ee;
-$danger: #dc3545;
+export type Theme = "light" | "dark";
 
-// Dark theme palette used by Bootstrap under [data-bs-theme="dark"].
-$body-bg-dark: #2b3240;
-$body-color-dark: #dee2e6;
-$body-secondary-bg-dark: #343c4c;
-$body-tertiary-bg-dark: #262c38;
-$border-color-dark: #4a5366;
+export const THEME_STORAGE_KEY = "ambariTheme";
+export const DEFAULT_THEME: Theme = "light";
+
+export const isTheme = (value: unknown): value is Theme =>
+  value === "light" || value === "dark";
+
+export const getStoredTheme = (): Theme => {
+  try {
+    const value = localStorage.getItem(THEME_STORAGE_KEY);
+    return isTheme(value) ? value : DEFAULT_THEME;
+  } catch {
+    return DEFAULT_THEME;
+  }
+};
+
+export const setStoredTheme = (theme: Theme) => {
+  try {
+    localStorage.setItem(THEME_STORAGE_KEY, theme);
+  } catch {
+    // Theme switching must still work when browser storage is blocked.
+  }
+};
+
+export const applyTheme = (theme: Theme) => {
+  if (typeof document !== "undefined") {
+    document.documentElement.setAttribute("data-bs-theme", theme);
+  }
+};

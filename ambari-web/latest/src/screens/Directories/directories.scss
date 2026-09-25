@@ -16,7 +16,7 @@
  */
 
 .directory-nav {
-  background: #fff;
+  background: var(--bs-body-bg);
 }
 
 .directory-scroll {
@@ -40,7 +40,7 @@
 }
 
 .directory-table-wrap {
-  border: 1px solid #dee2e6;
+  border: 1px solid var(--bs-border-color);
 }
 
 .directory-table {
@@ -102,7 +102,7 @@
   }
 
   .directory-table tr {
-    border: 1px solid #dee2e6;
+    border: 1px solid var(--bs-border-color);
     margin-bottom: 12px;
     padding: 10px 12px;
   }
@@ -117,7 +117,7 @@
   }
 
   .directory-table td::before {
-    color: #6c757d;
+    color: var(--ambari-text-secondary);
     content: attr(data-label);
     font-size: 0.875rem;
     font-weight: 600;

@@ -18,6 +18,7 @@
 
 import {get} from "lodash";
 import Select from "react-select";
+import { themedSelectStyles } from "../../Utils/selectStyles";
 import { statusMatchesFilter } from "../../Utils/backgroundOperations";
 type FiltersProps = {
   items: any;
@@ -100,10 +101,10 @@ function Filters({
     <>
       <Select
         options={currentOptions}
-        styles={{
+        styles={themedSelectStyles({
           // Fixes the overlapping problem of the component
           menu: (provided) => ({ ...provided, zIndex: 9999 }),
-        }}
+        })}
         value={currentSelection}
         className="w-25"
         isSearchable={false}

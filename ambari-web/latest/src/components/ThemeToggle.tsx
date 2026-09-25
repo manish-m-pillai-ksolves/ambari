@@ -16,16 +16,27 @@
  * limitations under the License.
  */
 
-$primary: #3fae2a;
-$secondary: #323544;
-$tertiary: #b8bec4;
-$disabled: #666;
-$redirect-link-color: #0000ee;
-$danger: #dc3545;
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+import { useTranslation } from "react-i18next";
+import { useTheme } from "../hooks/useTheme";
 
-// Dark theme palette used by Bootstrap under [data-bs-theme="dark"].
-$body-bg-dark: #2b3240;
-$body-color-dark: #dee2e6;
-$body-secondary-bg-dark: #343c4c;
-$body-tertiary-bg-dark: #262c38;
-$border-color-dark: #4a5366;
+export default function ThemeToggle() {
+  const { t } = useTranslation();
+  const { theme, toggleTheme } = useTheme();
+  const isDark = theme === "dark";
+  const label = isDark ? t("app.theme.switchToLight") : t("app.theme.switchToDark");
+
+  return (
+    <button
+      type="button"
+      className="btn btn-link navbar-text navbar-size p-0 flex-shrink-0"
+      aria-label={label}
+      aria-pressed={isDark}
+      title={label}
+      onClick={toggleTheme}
+    >
+      <FontAwesomeIcon icon={isDark ? faSun : faMoon} />
+    </button>
+  );
+}

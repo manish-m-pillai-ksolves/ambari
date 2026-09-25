@@ -19,6 +19,7 @@
 import { useState, useEffect } from "react";
 import Select from "react-select";
 import CreatableSelect from "react-select/creatable";
+import { themedSelectStyles } from "../../Utils/selectStyles";
 import { Badge, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
@@ -155,6 +156,7 @@ export default function ConfigHistoryComboSearch({
     <div className="d-flex flex-column mb-3">
       <form className="d-flex align-items-center" onSubmit={addFilter}>
         <Select
+          styles={themedSelectStyles()}
           value={selectedField}
           onChange={(value) => setSelectedField(value as FilterField)}
           options={filterFieldOptions}
@@ -164,6 +166,7 @@ export default function ConfigHistoryComboSearch({
         />
         {selectedField?.value === "user" || selectedField?.value === "service_config_version_note" ? (
           <CreatableSelect
+            styles={themedSelectStyles()}
             value={selectedValue}
             onChange={(value) => setSelectedValue(value as { label: string; value: string })}
             options={valueOptions}
@@ -174,6 +177,7 @@ export default function ConfigHistoryComboSearch({
           />
         ) : (
           <Select
+            styles={themedSelectStyles()}
             value={selectedValue}
             onChange={(value) => setSelectedValue(value as { label: string; value: string })}
             options={valueOptions}

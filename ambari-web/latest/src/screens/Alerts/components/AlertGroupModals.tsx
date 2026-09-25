@@ -33,6 +33,7 @@ import {
 } from "../types";
 import EditableList from "../../../components/EditableList";
 import Select from "react-select";
+import { themedSelectStyles } from "../../../Utils/selectStyles";
 import { validateRepeatTolerance } from '../../../Utils/alertDefinitions';
 
 // Helper function to get definitions from a group
@@ -602,7 +603,7 @@ export const AddDefinitionsModal: React.FC<AddDefinitionsModalProps> = ({
                 isSearchable
                 className="react-select-container"
                 classNamePrefix="react-select"
-                styles={{
+                styles={themedSelectStyles({
                   container: (provided) => ({
                     ...provided,
                     minWidth: "120px",
@@ -613,7 +614,7 @@ export const AddDefinitionsModal: React.FC<AddDefinitionsModalProps> = ({
                     minHeight: "30px",
                     fontSize: "12px",
                   }),
-                }}
+                })}
               />
             </div>
             <div className="col-md-2" id="filter-dropdown-div">
@@ -641,7 +642,7 @@ export const AddDefinitionsModal: React.FC<AddDefinitionsModalProps> = ({
                 isSearchable
                 className="react-select-container w-100"
                 classNamePrefix="react-select"
-                styles={{
+                styles={themedSelectStyles({
                   container: (provided) => ({
                     ...provided,
                     minWidth: "120px",
@@ -652,7 +653,7 @@ export const AddDefinitionsModal: React.FC<AddDefinitionsModalProps> = ({
                     minHeight: "30px",
                     fontSize: "12px",
                   }),
-                }}
+                })}
               />
             </div>
           </div>

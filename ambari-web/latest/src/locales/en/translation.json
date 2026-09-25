@@ -15,6 +15,8 @@
   "app.name":"Ambari",
   "app.language": "Language",
   "app.language.chinese": "简体中文",
+  "app.theme.switchToDark": "Switch to dark mode",
+  "app.theme.switchToLight": "Switch to light mode",
   "app.switchExperience": "Switch Experience",
   "app.hostMaintenance": "Host {{hostname}} is in maintenance mode",
   "directory.navigation": "Global directories",

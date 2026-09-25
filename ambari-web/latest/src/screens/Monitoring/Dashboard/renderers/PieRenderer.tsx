@@ -21,6 +21,8 @@ import { Doughnut, Pie } from "react-chartjs-2";
 import type { DashboardPanel } from "../../types";
 import { formatMetricValue, getPanelDecimals, getPanelUnit } from "../../valueFormatter";
 import { calculatePanelValue, panelCustomOptions, type DashboardPanelResult } from "../data/panelData";
+import { useTheme } from "../../../../hooks/useTheme";
+import { chartThemeOptions } from "../../../../Utils/chartTheme";
 
 ChartJs.register(ArcElement, Legend, Tooltip);
 
@@ -33,6 +35,7 @@ interface PieRendererProps {
 }
 
 export default function PieRenderer({ panel, results, height }: PieRendererProps) {
+  const chartTheme = chartThemeOptions(useTheme().theme);
   const unit = getPanelUnit(panel.options);
   const decimals = getPanelDecimals(panel.options);
   const custom = panelCustomOptions(panel);
@@ -48,13 +51,14 @@ export default function PieRenderer({ panel, results, height }: PieRendererProps
       data: results.map((result) => calculatePanelValue(result, calculation) ?? 0),
       backgroundColor: results.map((_result, index) => COLORS[index % COLORS.length]),
       borderWidth: 1,
+      ...chartTheme.arc,
     }],
   };
   const options = {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
-      legend: { position: legendPosition },
+      legend: { position: legendPosition, ...chartTheme.legend },
       tooltip: {
         callbacks: {
           label: (context: { label?: string; parsed: number }) => `${context.label || "Series"}: ${formatMetricValue(context.parsed, unit, decimals)}`,

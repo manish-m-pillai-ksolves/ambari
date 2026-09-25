@@ -88,7 +88,7 @@ export const Login = ({ isLocalLogin = false }: { isLocalLogin?: boolean }) => {
       <LoginMessageModal />
       <div
         className="w-100 d-flex align-items-center py-2 px-4"
-        style={{ background: "#313d54" }}
+        style={{ background: "var(--ambari-sidebar-header-bg)" }}
       >
         <Image src={AmbariLogo} alt="Ambari" className="logo" height={30} />
         <h2 className="logo-text  fs-16 mt-2 ms-3" style={{ color: "#b8bec4" }}>

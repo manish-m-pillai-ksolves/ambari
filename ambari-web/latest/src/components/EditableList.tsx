@@ -125,7 +125,7 @@ const EditableList: React.FC<EditableListProps> = ({
               <span>
                 <a href="#" onClick={(e) => e.preventDefault()}>
                   {item.AlertTarget.name}
-                  <small style={{ color: '#999', marginLeft: '5px' }}>
+                  <small style={{ color: 'var(--ambari-text-light)', marginLeft: '5px' }}>
                     ({item.AlertTarget.global ? 'Global' : 'Custom'})
                   </small>
                 </a>

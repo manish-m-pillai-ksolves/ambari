@@ -325,7 +325,7 @@ const SideBar = ({
   if (!isSidebarCollapsed) {
     return (
       <div
-        className="bg-secondary h-100 d-flex flex-column justify-content-between overflow-scroll no-scrollbar"
+        className="ambari-sidebar bg-secondary h-100 d-flex flex-column justify-content-between overflow-scroll no-scrollbar"
         style={{ width: 230, position: "fixed", zIndex: 10 }}
       >
         <div>
@@ -408,7 +408,7 @@ const SideBar = ({
         </div>
         <div
           className="py-3 d-flex justify-content-center text-primary"
-          style={{ background: "#313d54", cursor: "pointer" }}
+          style={{ background: "var(--ambari-sidebar-header-bg)", cursor: "pointer" }}
           onClick={() => {
             setIsSidebarCollapsed(!isSidebarCollapsed);
           }}
@@ -420,7 +420,7 @@ const SideBar = ({
   } else {
     return (
       <div
-        className="bg-secondary h-100 d-flex flex-column justify-content-between"
+        className="ambari-sidebar bg-secondary h-100 d-flex flex-column justify-content-between"
         style={{ width: 60 }}
       >
         <div>
@@ -440,7 +440,7 @@ const SideBar = ({
         </div>
         <div
           className="py-3 d-flex justify-content-center text-primary"
-          style={{ background: "#313d54", cursor: "pointer" }}
+          style={{ background: "var(--ambari-sidebar-header-bg)", cursor: "pointer" }}
           onClick={() => {
             setIsSidebarCollapsed(!isSidebarCollapsed);
           }}

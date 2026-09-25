@@ -40,7 +40,7 @@
 
 .hover-effect-version-dropdown {
   color: grey !important;
-  background-color: white !important;
+  background-color: var(--bs-body-bg) !important;
   transition: color 0.3s, background-color 0.3s !important;
 }
 
@@ -50,8 +50,8 @@
 }
 
 .hover-effect-make-current-btn {
-  color: green !important;
-  background-color: white !important;
+  color: var(--ambari-success-text) !important;
+  background-color: var(--bs-body-bg) !important;
   transition: color 0.3s, background-color 0.3s !important;
 }
 
@@ -88,10 +88,10 @@
   background-color: inherit !important;
 }
 .version-card-current {
-  background-color: #f2f9f2 !important;
+  background-color: var(--ambari-current-card-bg) !important;
 }
 .version-card-default {
-  background-color: white !important;
+  background-color: var(--bs-body-bg) !important;
 }
 .version-card:hover,
 .version-card-current:hover,
@@ -109,7 +109,7 @@
   display: flex !important;
 }
 .bg-lightest {
-  background: #eeeeee !important;
+  background: var(--ambari-surface-subtle) !important;
 }
 .widget-card {
   width: 350px;

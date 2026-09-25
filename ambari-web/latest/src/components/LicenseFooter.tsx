@@ -36,10 +36,10 @@ const LicenseFooter: React.FC<LicenseFooterProps> = ({
     <footer 
       className="license-footer py-2 mt-auto"
       style={{
-        borderTop: hasSidebar?'1px solid #dee2e6':"none",
-        background:hasSidebar?"white":"transparent",
+        borderTop: hasSidebar?'1px solid var(--bs-border-color)':"none",
+        background:hasSidebar?"var(--bs-body-bg)":"transparent",
         fontSize: '12px',
-        color: '#6c757d',
+        color: 'var(--ambari-text-secondary)',
         position: 'fixed',
         bottom: 0,
         left: getLeftPosition(),

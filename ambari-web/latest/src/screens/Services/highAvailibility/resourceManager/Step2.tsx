@@ -19,6 +19,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Alert, Button, Card, Col, Form, Row } from "react-bootstrap";
 import Select from "react-select";
+import { themedSelectStyles } from "../../../../Utils/selectStyles";
 import { AppContext } from "../../../../store/context";
 import { EnableHighAvailibilityContext } from "./store/context";
 import { ActionTypes } from "./store/types";
@@ -323,6 +324,7 @@ function Step2() {
                     Additional ResourceManager
                   </Form.Label>
                   <Select<HostOption, false>
+                    styles={themedSelectStyles()}
                     inputId="additional-resource-manager"
                     value={
                       hostOptions.find(({ value }) => value === additionalRM) ||
