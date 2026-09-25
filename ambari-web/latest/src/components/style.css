@@ -18,11 +18,11 @@
 
 .table thead,
 .table thead th {
-  color: #999 !important;
+  color: var(--ambari-text-light) !important;
   font-weight: 700 !important;
 }
 .table tbody td {
-  color: #666 !important;
+  color: var(--ambari-text) !important;
 }
 .table tbody td:hover {
   cursor: default;
@@ -44,7 +44,7 @@
 
 .tabs a {
   text-decoration: none;
-  color: black;
+  color: var(--bs-emphasis-color);
   padding: 10px;
 }
 

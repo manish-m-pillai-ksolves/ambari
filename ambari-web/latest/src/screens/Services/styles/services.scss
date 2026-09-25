@@ -19,7 +19,7 @@
 .notification-bell {
   position: relative;
   .notification-bell-icon {
-    color: #999999;
+    color: var(--ambari-text-light);
     cursor: pointer;
     font-size: 16px;
   }
@@ -43,7 +43,7 @@
   }
 }
 .text-light{
-    color:rgb(102, 102, 102)!important;
+    color:var(--ambari-text)!important;
 }
 .action-btn{
   position:absolute;

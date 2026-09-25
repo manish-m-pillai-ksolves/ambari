@@ -425,7 +425,7 @@
   font-weight: normal;
   font-style: normal;
   line-height: 1;
-  color: #333;
+  color: var(--ambari-text-strong);
 }
 
 h1 {
@@ -545,7 +545,7 @@ h6 {
 }
 
 .navbar-text {
-  color: #777 !important;
+  color: var(--ambari-navbar-text) !important;
 }
 .navbar-size {
   font-size: 16px !important;
@@ -558,7 +558,7 @@ h6 {
 #root {
   height: 100vh;
   width: 100%;
-  background-color: rgba(233, 233, 233, 0.5) !important;
+  background-color: var(--ambari-app-bg) !important;
 }
 
 .sideitem,
@@ -566,7 +566,7 @@ h6 {
   color: #999 !important;
 }
 .sideitem:hover {
-  background: #404351 !important;
+  background: var(--ambari-sidebar-hover-bg) !important;
   cursor: pointer !important;
   color: #fff !important;
 }
@@ -574,11 +574,11 @@ h6 {
   background: transparent !important;
 }
 .selected-item {
-  background: #404351 !important;
+  background: var(--ambari-sidebar-hover-bg) !important;
   color: white !important;
 }
 .sidebar-collapse:hover {
-  background: #404351 !important;
+  background: var(--ambari-sidebar-hover-bg) !important;
   cursor: pointer !important;
   color: #fff !important;
 }
@@ -602,7 +602,7 @@ h6 {
 }
 
 .custom-link {
-  color: #1291c1 !important;
+  color: var(--ambari-link) !important;
   text-decoration: none !important;
 }
 
@@ -696,6 +696,93 @@ body * {
 
 @import "bootstrap/scss/bootstrap";
 
+// Theme tokens. Light values match the colors used before dark mode.
+:root {
+  --ambari-text-strong: #333;
+  --ambari-text: #666;
+  --ambari-text-light: #999;
+  --ambari-text-secondary: #6c757d;
+  --ambari-text-subtle: #495057;
+  --ambari-text-item: #555;
+  --ambari-text-faint: #ddd;
+  --ambari-navbar-text: #777;
+  --ambari-tab-text: rgb(107, 108, 108);
+  --ambari-link: #1291c1;
+  --ambari-success-text: green;
+  --ambari-info: #1491c1;
+  --ambari-app-bg: rgba(233, 233, 233, 0.5);
+  --ambari-content-bg: #e6e6e6;
+  --ambari-surface-muted: #f5f5f5;
+  --ambari-surface-hover: #eaeaea;
+  --ambari-highlight-bg: #e6f1f6;
+  --ambari-current-card-bg: #f2f9f2;
+  --ambari-surface-subtle: #eee;
+  --ambari-hover-bg: #d8d8d8;
+  --ambari-list-hover-bg: #eee;
+  --ambari-border: #ccc;
+  --ambari-border-input: #cfd3d7;
+  --ambari-border-soft: #d7dde3;
+  --ambari-border-panel: #e3e3e3;
+  --ambari-border-item: #ebebeb;
+  --ambari-border-muted: #ddd;
+  --ambari-border-version: #d2d9dd;
+  --ambari-slider-marker: #495057;
+  --ambari-lock-selected-bg: rgb(225, 224, 224);
+  --ambari-lock-selected-color: #0000ff;
+  --ambari-sidebar-bg: #323544;
+  --ambari-sidebar-header-bg: #313d54;
+  --ambari-sidebar-hover-bg: #404351;
+}
+
+[data-bs-theme="dark"] {
+  --ambari-text-strong: #e9ecef;
+  --ambari-text: #c3c9d1;
+  --ambari-text-light: #a3abb7;
+  --ambari-text-secondary: #aab2bd;
+  --ambari-text-subtle: #ced4da;
+  --ambari-text-item: #c3c9d1;
+  --ambari-text-faint: #6c7686;
+  --ambari-navbar-text: #c3c9d1;
+  --ambari-tab-text: #aab2bd;
+  --ambari-link: #4fb3e0;
+  --ambari-success-text: #5cc26a;
+  --ambari-info: #4fb3e0;
+  --ambari-app-bg: #1f242e;
+  --ambari-content-bg: #1f242e;
+  --ambari-surface-muted: #262c38;
+  --ambari-surface-hover: #343c4c;
+  --ambari-highlight-bg: #24384a;
+  --ambari-current-card-bg: #25352c;
+  --ambari-surface-subtle: #262c38;
+  --ambari-hover-bg: #3a4252;
+  --ambari-list-hover-bg: #3a4252;
+  --ambari-border: #4a5366;
+  --ambari-border-input: #4a5366;
+  --ambari-border-soft: #4a5366;
+  --ambari-border-panel: #4a5366;
+  --ambari-border-item: #4a5366;
+  --ambari-border-muted: #4a5366;
+  --ambari-border-version: #4a5366;
+  --ambari-slider-marker: #adb5bd;
+  --ambari-lock-selected-bg: #3a4252;
+  --ambari-lock-selected-color: #8ab4ff;
+  --ambari-sidebar-bg: #1a1e26;
+  --ambari-sidebar-header-bg: #151a22;
+  --ambari-sidebar-hover-bg: #2b3240;
+  // Dark-only values for third-party widgets styled in JS; light mode uses their defaults.
+  --ambari-status-blue: #6ea8fe;
+  --ambari-status-green: #5cc26a;
+  --ambari-toast-bg: #343c4c;
+  --ambari-toast-color: #dee2e6;
+  --ambari-select-bg: #2b3240;
+  --ambari-select-border: #4a5366;
+  --ambari-select-text: #dee2e6;
+  --ambari-select-placeholder: #a3abb7;
+  --ambari-select-option-focus-bg: #3a4252;
+  --ambari-select-multi-bg: #3a4252;
+  --ambari-select-multi-text: #dee2e6;
+}
+
 .make-all-grey,
 .make-all-grey * {
   color: #666;
@@ -703,9 +790,9 @@ body * {
 
 .btn-default {
   text-transform: uppercase;
-  color: #666 !important;
-  background-color: #fff !important;
-  border: 1px solid #cfd3d7 !important;
+  color: var(--ambari-text) !important;
+  background-color: var(--bs-body-bg) !important;
+  border: 1px solid var(--ambari-border-input) !important;
   border-radius: 4px !important;
   font-size: 14px !important;
   font-family: "Roboto", sans-serif !important;
@@ -720,9 +807,9 @@ body * {
 }
 
 .btn-default:active {
-  color: #666 !important;
-  background-color: #fff !important;
-  border: 1px solid #cfd3d7;
+  color: var(--ambari-text) !important;
+  background-color: var(--bs-body-bg) !important;
+  border: 1px solid var(--ambari-border-input);
   box-shadow: 0 0 2px 0 #1391c1 !important;
 }
 
@@ -731,7 +818,7 @@ body * {
 }
 
 .custom-link {
-  color: #1291c1 !important;
+  color: var(--ambari-link) !important;
   text-decoration: none !important;
 }
 
@@ -741,13 +828,13 @@ body * {
 }
 
 .custom-scrollbar {
-  scrollbar-color: #ccc white;
+  scrollbar-color: var(--ambari-border) var(--bs-body-bg);
 }
 
 .custom-modal-container > div > div {
   border-radius: 0 !important;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-  color: #666;
+  color: var(--ambari-text);
 }
 
 .modal-width .modal-dialog {
@@ -802,14 +889,14 @@ body * {
 }
 
 .custom-radio-label {
-  color: #1291c1;
+  color: var(--ambari-link);
   text-decoration: underline;
 }
 
 .custom-radio-label:hover {
-  color: #1291c1 !important;
+  color: var(--ambari-link) !important;
   cursor: pointer !important;
-  background-color: #d8d8d8 !important;
+  background-color: var(--ambari-hover-bg) !important;
 }
 
 .custom-radio-label.active {
@@ -832,7 +919,7 @@ body * {
 }
 
 .make-link {
-  color: #1291c1;
+  color: var(--ambari-link);
   text-decoration: none !important;
 }
 
@@ -911,14 +998,14 @@ body * {
 .scrollable-h15 {
   max-height: 15vh;
   overflow-y: auto;
-  background-color: #f5f5f5;
+  background-color: var(--ambari-surface-muted);
 }
 
 .btn-dropdown {
   text-transform: uppercase;
-  color: #666 !important;
-  background-color: #fff !important;
-  border: 1px solid #cfd3d7 !important;
+  color: var(--ambari-text) !important;
+  background-color: var(--bs-body-bg) !important;
+  border: 1px solid var(--ambari-border-input) !important;
   border-radius: 0;
   font-size: 14px !important;
   font-family: "Roboto", sans-serif !important;
@@ -933,9 +1020,9 @@ body * {
 }
 
 .btn-dropdown:active {
-  color: #666 !important;
-  background-color: #fff !important;
-  border: 1px solid #cfd3d7;
+  color: var(--ambari-text) !important;
+  background-color: var(--bs-body-bg) !important;
+  border: 1px solid var(--ambari-border-input);
   box-shadow: 0 0 2px 0 #1391c1 !important;
 }
 
@@ -983,14 +1070,14 @@ input {
   border-color: #ddd;
 }
 .light-text {
-  color: #999 !important;
+  color: var(--ambari-text-light) !important;
 }
 .fw-bolder {
   font-weight: 700 !important;
 }
 
 .text-info {
-  color: #1491c1 !important;
+  color: var(--ambari-info) !important;
 }
 
 .blue-card {
@@ -1082,9 +1169,9 @@ body * {
 
 .btn-default {
   text-transform: uppercase;
-  color: #666 !important;
-  background-color: #fff !important;
-  border: 1px solid #cfd3d7 !important;
+  color: var(--ambari-text) !important;
+  background-color: var(--bs-body-bg) !important;
+  border: 1px solid var(--ambari-border-input) !important;
   border-radius: 4px !important;
   font-size: 14px !important;
   font-family: "Roboto", sans-serif !important;
@@ -1099,9 +1186,9 @@ body * {
 }
 
 .btn-default:active {
-  color: #666 !important;
-  background-color: #fff !important;
-  border: 1px solid #cfd3d7;
+  color: var(--ambari-text) !important;
+  background-color: var(--bs-body-bg) !important;
+  border: 1px solid var(--ambari-border-input);
   box-shadow: 0 0 2px 0 #1391c1 !important;
 }
 
@@ -1233,11 +1320,11 @@ pre {
   margin: 0 0 10px;
   font-size: 13px;
   line-height: 1.42857143;
-  color: #333;
+  color: var(--ambari-text-strong);
   word-break: break-all;
   word-wrap: break-word;
-  background-color: #f5f5f5;
-  border: 1px solid #ccc;
+  background-color: var(--ambari-surface-muted);
+  border: 1px solid var(--ambari-border);
   border-radius: 4px;
 }
 
@@ -1382,14 +1469,14 @@ pre {
 }
 
 .wizard-content {
-  background: rgba(233, 233, 233, 0.5) !important;
+  background: var(--ambari-app-bg) !important;
 }
 
 .step-title {
   font-weight: 400 !important;
   font-style: normal;
   line-height: 1;
-  color: #333;
+  color: var(--ambari-text-strong);
   font-size: 16px;
 }
 .step-description {
@@ -1399,11 +1486,11 @@ pre {
   line-height: 1 !important;
   font-size: 12px !important;
   line-height: 1.4 !important;
-  color: #999 !important;
+  color: var(--ambari-text-light) !important;
 }
 .icon-click:hover {
   cursor: pointer;
-  color: #333333;
+  color: var(--ambari-text-strong);
 }
 
 .upgrade-method {
@@ -1484,7 +1571,7 @@ pre {
   background-color: $tertiary !important;
 }
 .bg-very-light {
-  background-color: #f5f5f5 !important;
+  background-color: var(--ambari-surface-muted) !important;
 }
 
 .modal-body {
@@ -1521,7 +1608,7 @@ pre {
   right: 15px;
   width: 30px;
   height: 30px;
-  background-color: white;
+  background-color: var(--bs-body-bg);
   transform: rotate(45deg);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   z-index: 1000;
@@ -1530,7 +1617,7 @@ pre {
   position: absolute;
   top: 50px;
   right: -30px;
-  background-color: white;
+  background-color: var(--bs-body-bg);
   border-radius: 0;
   border: 0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
@@ -1538,8 +1625,8 @@ pre {
   width: 450px;
 }
 .code-snippet {
-  background-color: #eee;
-  border: 1px dashed #ccc;
+  background-color: var(--ambari-surface-subtle);
+  border: 1px dashed var(--ambari-border);
   font-family: Courier;
   font-size: 12px;
   padding: 4px;
@@ -1559,19 +1646,19 @@ pre {
   .nav-link {
     background: transparent !important;
     text-transform: uppercase !important;
-    color: rgb(107, 108, 108) !important;
+    color: var(--ambari-tab-text) !important;
     border: 0px !important;
   }
   .nav-link.active {
     border-bottom: 3px solid #3fae2a !important;
-    color: #333 !important;
+    color: var(--ambari-text-strong) !important;
   }
 }
 
 .nav-link-underlined {
   cursor: pointer !important;
   text-transform: uppercase !important;
-  color: #333 !important;
+  color: var(--ambari-text-strong) !important;
   font-weight: 400 !important;
   font-size: 16px !important;
 }
@@ -1587,13 +1674,13 @@ pre {
 .ambari-nav {
   background: transparent !important;
   text-transform: uppercase !important;
-  color: rgb(107, 108, 108) !important;
+  color: var(--ambari-tab-text) !important;
   border: 0px !important;
 }
 
 .ambari-nav.active {
   border-bottom: 3px solid #3fae2a !important;
-  color: #333 !important;
+  color: var(--ambari-text-strong) !important;
 }
 .current-version-box {
   background: none repeat scroll 0 0 #e6f1f6;
@@ -1655,13 +1742,13 @@ pre {
   height: 8px;
   padding: 0;
   transform: translateX(-50%);
-  border: 1px solid #495057;
+  border: 1px solid var(--ambari-slider-marker);
   border-radius: 50%;
-  background: #fff;
+  background: var(--bs-body-bg);
 }
 
 .custom-slider-marker-current {
-  background: #495057;
+  background: var(--ambari-slider-marker);
 }
 
 .custom-slider-marker-recommended {
@@ -1673,8 +1760,8 @@ pre {
   min-width: 0 !important;
 }
 .lock-selected {
-  background-color: rgb(225, 224, 224) !important;
-  color: $health-status-blue !important;
+  background-color: var(--ambari-lock-selected-bg) !important;
+  color: var(--ambari-lock-selected-color) !important;
   cursor: pointer !important;
 
 
@@ -1717,16 +1804,16 @@ pre {
 }
 
 .service-theme-subsection-bordered {
-  border: 1px solid #d7dde3;
+  border: 1px solid var(--ambari-border-soft);
   padding: 0.5rem;
 }
 
 .service-theme-subsection-split {
-  border-left: 1px solid #d7dde3;
+  border-left: 1px solid var(--ambari-border-soft);
 }
 
 .service-theme-subsection-top-split {
-  border-top: 1px solid #d7dde3;
+  border-top: 1px solid var(--ambari-border-soft);
   padding-top: 0.5rem;
 }
 
@@ -1751,6 +1838,48 @@ pre {
 
   .service-theme-subsection-split {
     border-left: 0;
-    border-top: 1px solid #d7dde3;
+    border-top: 1px solid var(--ambari-border-soft);
   }
+}
+
+// Dark mode remaps for light-only utilities used across many screens.
+// Dark text stays on light colored backgrounds such as warning badges.
+[data-bs-theme="dark"] {
+  .text-dark:not(.bg-warning):not(.bg-info):not(.bg-light):not(.badge) {
+    color: var(--bs-body-color) !important;
+  }
+
+  .text-black {
+    color: var(--bs-emphasis-color) !important;
+  }
+
+  .bg-white {
+    background-color: var(--bs-body-bg) !important;
+  }
+
+  .rc-slider-rail,
+  .rc-slider-disabled {
+    background-color: var(--ambari-border);
+  }
+
+  .rc-slider-handle,
+  .rc-slider-dot {
+    background-color: var(--bs-body-bg);
+  }
+
+  .rc-slider-dot {
+    border-color: var(--ambari-border);
+  }
+
+  .rc-slider-mark-text {
+    color: var(--ambari-text-light);
+  }
+
+  .rc-slider-mark-text-active {
+    color: var(--ambari-text);
+  }
+}
+
+.ambari-sidebar {
+  background-color: var(--ambari-sidebar-bg) !important;
 }

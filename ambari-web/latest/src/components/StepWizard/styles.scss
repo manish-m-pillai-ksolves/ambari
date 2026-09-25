@@ -33,7 +33,7 @@
   padding: "0px 20px";
 }
 .step-wizard-step-count-completed {
-  color: #999 !important;
+  color: var(--ambari-text-light) !important;
   background: #1eb475;
   border-color: transparent !important;
 }
@@ -45,7 +45,7 @@
   .step-label,
   .step-wizard-step-count-active {
     font-weight: bold !important;
-    color: #999 !important;
+    color: var(--ambari-text-light) !important;
   }
 }
 .step-wizard-step-count-completed::after {
@@ -72,7 +72,7 @@
 }
 .wizard-nav {
   width: 250px;
-  background-color: #323544;
+  background-color: var(--ambari-sidebar-bg);
   height: 100%;
 }
 
@@ -96,11 +96,11 @@
     background:transparent!important;
   }
   tr{
-  border-bottom: 1px solid #d2d9dd!important;
+  border-bottom: 1px solid var(--ambari-border-version)!important;
   }
 }
 .versions-slides-bar {
-  border-left: 1px solid #d2d9dd;
+  border-left: 1px solid var(--ambari-border-version);
   overflow-x: auto;
   margin-top: 70px;
 }
@@ -122,23 +122,23 @@
 .version-box {
   min-width: 200px;
   max-width: 250px;
-  border-top: 1px solid #d2d9dd;
-  border-right: 1px solid #d2d9dd;
-  border-bottom: 1px solid #d2d9dd;
+  border-top: 1px solid var(--ambari-border-version);
+  border-right: 1px solid var(--ambari-border-version);
+  border-bottom: 1px solid var(--ambari-border-version);
   position: relative;
   width: 100%;
-  background-color: #fff;
+  background-color: var(--bs-body-bg);
   height:600px!important;
 }
 
 .version-box.current {
-  background: none repeat 0 0 #e6f1f6;
+  background: none repeat 0 0 var(--ambari-highlight-bg);
   box-shadow: 0 8px 6px -6px black;
 }
 
 .upgrade-modal {
   .modal-title h2 {
-    color: #666;
+    color: var(--ambari-text);
     font-size: 20px;
     font-weight: 500;
   }
@@ -151,9 +151,9 @@
 
   .upgrade-method {
     width: 48%;
-    border: 1px solid #ddd;
+    border: 1px solid var(--ambari-border-muted);
     border-radius: 0;
-    background-color: #f5f5f5;
+    background-color: var(--ambari-surface-muted);
     padding: 20px;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -165,12 +165,12 @@
   }
 
   .upgrade-method:hover {
-    background-color: #eaeaea;
+    background-color: var(--ambari-surface-hover);
   }
 
   .upgrade-method.selected {
     border: 2px solid #1491c1;
-    background-color: #f5f5f5;
+    background-color: var(--ambari-surface-muted);
   }
 
   .upgrade-method-icon {
@@ -186,7 +186,7 @@
 
   .upgrade-method-description {
     font-size: 14px;
-    color: #666;
+    color: var(--ambari-text);
     margin-bottom: 15px;
   }
 
@@ -208,14 +208,14 @@
   }
 
   .modal-footer {
-    border-top: 1px solid #ddd;
+    border-top: 1px solid var(--ambari-border-muted);
     padding: 15px;
   }
 
   .btn-cancel {
-    background-color: #fff;
-    color: #666;
-    border: 1px solid #ccc;
+    background-color: var(--bs-body-bg);
+    color: var(--ambari-text);
+    border: 1px solid var(--ambari-border);
     text-transform: uppercase;
   }
 
