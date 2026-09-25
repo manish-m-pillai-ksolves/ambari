@@ -16,6 +16,66 @@
  * limitations under the License.
  */
 
+// Theme tokens. Light values match the colors used before dark mode.
+:root {
+  --dashboard-canvas-bg: #f7f8fa;
+  --dashboard-row-bg: #e9eeeb;
+  --dashboard-panel-hover-border: #bdc7cc;
+  --dashboard-divider: #e6eaed;
+  --dashboard-gauge-track: #e9edef;
+  --dashboard-bar-track: #edf0f1;
+  --dashboard-lcd-off: #e1e6e8;
+  --dashboard-control-border: #cbd4cf;
+  --dashboard-toolbar-bg: #edf1ef;
+  --dashboard-toolbar-border: #d9e0dc;
+  --dashboard-empty-border: #b9c2c8;
+  --dashboard-grid-line: #f2f4f5;
+  --dashboard-action-border: #dce2de;
+  --dashboard-action-text: #4a5863;
+  --dashboard-editor-bg: #f7f9fa;
+  --dashboard-preview-bg: #eef1f3;
+  --dashboard-section-border: #e2e7ea;
+  --dashboard-label: #56636e;
+  --dashboard-heading: #25313d;
+  --dashboard-query-border: #e4e8eb;
+  --dashboard-query-bg: #fafbfb;
+  --dashboard-variable-border: #e5e9eb;
+  --dashboard-link: #1e5f35;
+}
+
+[data-bs-theme="dark"] {
+  --dashboard-canvas-bg: #1f242e;
+  --dashboard-row-bg: #2f3847;
+  --dashboard-panel-hover-border: #5a6478;
+  --dashboard-divider: #3a4252;
+  --dashboard-gauge-track: #3a4252;
+  --dashboard-bar-track: #3a4252;
+  --dashboard-lcd-off: #3a4252;
+  --dashboard-control-border: #4a5366;
+  --dashboard-toolbar-bg: #262c38;
+  --dashboard-toolbar-border: #4a5366;
+  --dashboard-empty-border: #5a6478;
+  --dashboard-grid-line: #262c38;
+  --dashboard-action-border: #4a5366;
+  --dashboard-action-text: #c3c9d1;
+  --dashboard-editor-bg: #1f242e;
+  --dashboard-preview-bg: #1f242e;
+  --dashboard-section-border: #3a4252;
+  --dashboard-label: #aab2bd;
+  --dashboard-heading: #e1e5ea;
+  --dashboard-query-border: #3a4252;
+  --dashboard-query-bg: #262c38;
+  --dashboard-variable-border: #3a4252;
+  --dashboard-link: #6fcf8a;
+
+  .monitoring-shell {
+    --monitoring-ink: #e1e5ea;
+    --monitoring-muted: #aab2bd;
+    --monitoring-line: #4a5366;
+    --monitoring-soft: #262c38;
+  }
+}
+
 .monitoring-shell {
   --monitoring-ink: #25313d;
   --monitoring-muted: #66727d;
@@ -23,7 +83,7 @@
   --monitoring-accent: #278541;
   --monitoring-soft: #f4f7f5;
   min-height: 100%;
-  background: #f7f8fa;
+  background: var(--dashboard-canvas-bg);
   color: var(--monitoring-ink);
 }
 
@@ -33,7 +93,7 @@
   justify-content: space-between;
   gap: 32px;
   padding: 22px 28px 0;
-  background: #fff;
+  background: var(--bs-body-bg);
   border-bottom: 1px solid var(--monitoring-line);
 
   h1 {
@@ -79,7 +139,7 @@
 }
 
 .monitoring-panel {
-  background: #fff;
+  background: var(--bs-body-bg);
   border: 1px solid var(--monitoring-line);
   border-radius: 4px;
 }
@@ -136,7 +196,7 @@
 
 .dashboard-row-title {
   padding: 10px 12px;
-  background: #e9eeeb;
+  background: var(--dashboard-row-bg);
   border-left: 4px solid var(--monitoring-accent);
   color: var(--monitoring-ink);
   font-size: 14px;
@@ -150,14 +210,14 @@
   height: 100%;
   min-height: 0;
   overflow: hidden;
-  background: #fff;
+  background: var(--bs-body-bg);
   border: 1px solid var(--monitoring-line);
   border-radius: 4px;
   box-shadow: 0 1px 2px rgba(37, 49, 61, 0.05);
   transition: border-color 140ms ease, box-shadow 140ms ease;
 
   &:hover {
-    border-color: #bdc7cc;
+    border-color: var(--dashboard-panel-hover-border);
     box-shadow: 0 3px 10px rgba(37, 49, 61, 0.08);
   }
 
@@ -167,7 +227,7 @@
     justify-content: space-between;
     min-height: 42px;
     padding: 8px 12px;
-    border-bottom: 1px solid #e6eaed;
+    border-bottom: 1px solid var(--dashboard-divider);
 
     h3 {
       display: inline;
@@ -269,7 +329,7 @@
     flex-direction: column;
     min-height: 0;
     padding: 12px;
-    background: #fff;
+    background: var(--bs-body-bg);
     text-align: center;
   }
 
@@ -394,7 +454,7 @@
 }
 
 .dashboard-gauge-track {
-  stroke: #e9edef;
+  stroke: var(--dashboard-gauge-track);
 }
 
 .dashboard-gauge-value {
@@ -432,7 +492,7 @@
 .dashboard-bar-gauge-track {
   height: 8px;
   overflow: hidden;
-  background: #edf0f1;
+  background: var(--dashboard-bar-track);
   border-radius: 4px;
 
   span {
@@ -453,7 +513,7 @@
 
   i {
     height: 100%;
-    background: #e1e6e8;
+    background: var(--dashboard-lcd-off);
     border-radius: 1px;
   }
 }
@@ -468,7 +528,7 @@
   display: flex;
   gap: 6px;
   padding: 8px;
-  border-bottom: 1px solid #e6eaed;
+  border-bottom: 1px solid var(--dashboard-divider);
 
   .form-control {
     min-width: 120px;
@@ -497,7 +557,7 @@
     position: sticky;
     top: 0;
     z-index: 1;
-    background: #f8f9fa;
+    background: var(--bs-tertiary-bg);
     white-space: nowrap;
   }
 
@@ -536,7 +596,7 @@
   inset: 4px;
   z-index: 0 !important;
   overflow: hidden;
-  background: #edf0f1;
+  background: var(--dashboard-bar-track);
   border-radius: 2px;
   opacity: 0.42;
 
@@ -660,8 +720,8 @@
     min-width: 128px;
     max-width: 240px;
     overflow: hidden;
-    border: 1px solid #cbd4cf;
-    background: #fff;
+    border: 1px solid var(--dashboard-control-border);
+    background: var(--bs-body-bg);
     text-align: left;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -724,7 +784,7 @@
     position: sticky;
     z-index: 1;
     top: 0;
-    background: #fff;
+    background: var(--bs-body-bg);
     color: var(--monitoring-muted);
     font-weight: 600;
     text-transform: capitalize;
@@ -802,8 +862,8 @@
   min-height: 52px;
   margin-bottom: 12px;
   padding: 8px 10px;
-  background: #edf1ef;
-  border: 1px solid #d9e0dc;
+  background: var(--dashboard-toolbar-bg);
+  border: 1px solid var(--dashboard-toolbar-border);
   border-radius: 4px;
 }
 
@@ -855,9 +915,9 @@
   justify-content: center;
   flex-direction: column;
   gap: 10px;
-  border: 1px dashed #b9c2c8;
-  background-color: #fff;
-  background-image: linear-gradient(#f2f4f5 1px, transparent 1px), linear-gradient(90deg, #f2f4f5 1px, transparent 1px);
+  border: 1px dashed var(--dashboard-empty-border);
+  background-color: var(--bs-body-bg);
+  background-image: linear-gradient(var(--dashboard-grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--dashboard-grid-line) 1px, transparent 1px);
   background-size: 32px 32px;
   color: var(--monitoring-muted);
 
@@ -933,8 +993,8 @@
     width: 29px;
     height: 29px;
     padding: 0;
-    border: 1px solid #dce2de;
-    color: #4a5863;
+    border: 1px solid var(--dashboard-action-border);
+    color: var(--dashboard-action-text);
   }
 }
 
@@ -968,19 +1028,19 @@
 .dashboard-editor-main {
   min-width: 0;
   overflow: auto;
-  background: #f7f9fa;
+  background: var(--dashboard-editor-bg);
 }
 
 .dashboard-editor-preview {
   min-width: 0;
   padding: 18px;
-  background-color: #eef1f3;
+  background-color: var(--dashboard-preview-bg);
   background-image: linear-gradient(rgba(142, 153, 162, 0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(142, 153, 162, 0.12) 1px, transparent 1px);
   background-size: 28px 28px;
 }
 
 .dashboard-editor-queries {
-  background: #fff;
+  background: var(--bs-body-bg);
   border-top: 1px solid var(--monitoring-line);
 }
 
@@ -1000,17 +1060,17 @@
 .dashboard-editor-form {
   min-width: 0;
   overflow: auto;
-  background: #fff;
+  background: var(--bs-body-bg);
   border-left: 1px solid var(--monitoring-line);
 }
 
 .dashboard-editor-section {
   padding: 18px 20px;
-  border-bottom: 1px solid #e2e7ea;
+  border-bottom: 1px solid var(--dashboard-section-border);
 
   .form-label {
     margin-bottom: 4px;
-    color: #56636e;
+    color: var(--dashboard-label);
     font-size: 12px;
     font-weight: 600;
   }
@@ -1018,7 +1078,7 @@
 
 .dashboard-editor-section-title {
   margin-bottom: 13px;
-  color: #25313d;
+  color: var(--dashboard-heading);
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
@@ -1047,8 +1107,8 @@
 .dashboard-query-editor {
   margin: 0 -20px;
   padding: 14px 20px;
-  border-top: 1px solid #e4e8eb;
-  background: #fafbfb;
+  border-top: 1px solid var(--dashboard-query-border);
+  background: var(--dashboard-query-bg);
 
   &:last-child {
     margin-bottom: -18px;
@@ -1140,7 +1200,7 @@
   align-items: end;
   gap: 8px;
   padding: 12px 0;
-  border-bottom: 1px solid #e5e9eb;
+  border-bottom: 1px solid var(--dashboard-variable-border);
 
   .form-label {
     margin-bottom: 3px;
@@ -1169,7 +1229,7 @@
   }
 
   td:first-child a {
-    color: #1e5f35;
+    color: var(--dashboard-link);
     text-decoration: none;
   }
 }

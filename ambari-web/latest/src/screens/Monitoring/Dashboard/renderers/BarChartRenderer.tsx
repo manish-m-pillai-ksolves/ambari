@@ -28,6 +28,8 @@ import { Bar } from "react-chartjs-2";
 import type { DashboardPanel } from "../../types";
 import { formatMetricValue, getPanelDecimals, getPanelUnit } from "../../valueFormatter";
 import { calculatePanelValue, panelCustomOptions, panelNumericBounds, type DashboardPanelResult } from "../data/panelData";
+import { useTheme } from "../../../../hooks/useTheme";
+import { chartThemeOptions } from "../../../../Utils/chartTheme";
 
 ChartJs.register(BarElement, CategoryScale, LinearScale, Legend, Tooltip);
 
@@ -40,6 +42,7 @@ interface BarChartRendererProps {
 }
 
 export default function BarChartRenderer({ panel, results, height }: BarChartRendererProps) {
+  const chartTheme = chartThemeOptions(useTheme().theme);
   const unit = getPanelUnit(panel.options);
   const decimals = getPanelDecimals(panel.options);
   const { min, max } = panelNumericBounds(panel);
@@ -76,8 +79,8 @@ export default function BarChartRenderer({ panel, results, height }: BarChartRen
             },
           },
           scales: {
-            x: horizontal ? { min, max, ticks: { callback: (value) => formatMetricValue(value, unit, decimals) } } : { ticks: { maxRotation: 0, autoSkip: true, maxTicksLimit: 12 } },
-            y: horizontal ? { ticks: { autoSkip: true, maxTicksLimit: 12 } } : { min, max, ticks: { callback: (value) => formatMetricValue(value, unit, decimals) } },
+            x: horizontal ? { min, max, ticks: { callback: (value) => formatMetricValue(value, unit, decimals), ...chartTheme.text }, ...chartTheme.scale } : { ticks: { maxRotation: 0, autoSkip: true, maxTicksLimit: 12, ...chartTheme.text }, ...chartTheme.scale },
+            y: horizontal ? { ticks: { autoSkip: true, maxTicksLimit: 12, ...chartTheme.text }, ...chartTheme.scale } : { min, max, ticks: { callback: (value) => formatMetricValue(value, unit, decimals), ...chartTheme.text }, ...chartTheme.scale },
           },
         }}
       />

@@ -33,6 +33,8 @@ import {
 import { Bar, Line } from "react-chartjs-2";
 import { PrometheusResult } from "./types";
 import { formatMetricValue } from "./valueFormatter";
+import { useTheme } from "../../hooks/useTheme";
+import { chartThemeOptions } from "../../Utils/chartTheme";
 
 ChartJs.register(CategoryScale, LinearScale, LogarithmicScale, PointElement, LineElement, BarElement, Filler, TimeScale, Title, Tooltip, Legend);
 
@@ -106,6 +108,7 @@ export default function PrometheusChart({
   thresholds?: Array<{ value: number | null; color: string }>;
   height?: number;
 }) {
+  const chartTheme = chartThemeOptions(useTheme().theme);
   const timestampSet = new Set<number>();
   results.forEach((result) => {
     (result.values || (result.value ? [result.value] : [])).forEach(([timestamp]) => timestampSet.add(timestamp));
@@ -224,15 +227,15 @@ export default function PrometheusChart({
             maintainAspectRatio: false,
             interaction: { mode: tooltipMode === "single" ? "nearest" : "index", intersect: false },
             plugins: {
-              legend: { display: legendDisplay && !tableLegend, position: legendPosition, labels: { boxWidth: 12 } },
+              legend: { display: legendDisplay && !tableLegend, position: legendPosition, labels: { boxWidth: 12, ...chartTheme.text } },
               tooltip: {
                 itemSort,
                 callbacks: { label: (context) => `${context.dataset.label || "Series"}: ${formatMetricValue(context.parsed.y, unit, decimals)}` },
               },
             },
             scales: {
-              x: { stacked: stack, ticks: { maxTicksLimit: 8, maxRotation: 0 } },
-              y: { type: scaleType === "log" ? "logarithmic" : "linear", stacked: stack, min: minimum, max: maximum, ticks: { callback: (value) => formatMetricValue(value, unit, decimals) } },
+              x: { stacked: stack, ticks: { maxTicksLimit: 8, maxRotation: 0, ...chartTheme.text }, ...chartTheme.scale },
+              y: { type: scaleType === "log" ? "logarithmic" : "linear", stacked: stack, min: minimum, max: maximum, ticks: { callback: (value) => formatMetricValue(value, unit, decimals), ...chartTheme.text }, ...chartTheme.scale },
             },
           }}
         /></div>
@@ -253,7 +256,7 @@ export default function PrometheusChart({
           maintainAspectRatio: false,
           interaction: { mode: tooltipMode === "single" ? "nearest" : "index", intersect: false },
           plugins: {
-            legend: { display: legendDisplay && !tableLegend, position: legendPosition, labels: { boxWidth: 12 } },
+            legend: { display: legendDisplay && !tableLegend, position: legendPosition, labels: { boxWidth: 12, ...chartTheme.text } },
             tooltip: {
               itemSort,
               callbacks: {
@@ -271,7 +274,9 @@ export default function PrometheusChart({
               ticks: {
                 maxTicksLimit: 8,
                 callback: (value) => formatTimestamp(Number(value)),
+                ...chartTheme.text,
               },
+              ...chartTheme.scale,
             },
             y: {
               type: scaleType === "log" ? "logarithmic" : "linear",
@@ -280,7 +285,9 @@ export default function PrometheusChart({
               max: maximum,
               ticks: {
                 callback: (value) => formatMetricValue(value, unit, decimals),
+                ...chartTheme.text,
               },
+              ...chartTheme.scale,
             },
           },
         }}
