@@ -121,6 +121,30 @@ pre-existing dependency error `global is not defined`; the production preview
 was used for browser validation. Remaining hardcoded English and date/time locale
 behavior are not covered by these checks.
 
+## Theme Selection Increment
+
+AMBARI-26527 adds a light/dark theme toggle to the shared Navbar, between the
+Navbar icons and the user menu. Classic has no theme selection, so this is an
+additional React capability, not evidence of a reproduced Classic feature.
+
+- `src/Utils/theme.ts` stores the choice as plain text in the `ambariTheme`
+  localStorage key and sets `data-bs-theme` on the document element.
+  `src/main.tsx` applies the stored theme before the first render. Missing,
+  invalid, or unreadable values fall back to light, which is also the default
+  for first-time users. The operating system color scheme is not followed.
+- `ThemeProvider` switches the theme without a reload or remount, persists the
+  choice, and follows changes made in other tabs through the `storage` event.
+  The preference is local to the browser and is not sent to the User Settings
+  API. Logout preserves it, like the language choice.
+- Light mode keeps the previous colors: SCSS colors moved to CSS custom
+  properties whose light values are the old values, and react-select, toast, and
+  Chart.js colors change only in dark mode. Chart data-series colors and
+  user-configured panel colors are unchanged.
+- Focused evidence is in `src/Utils/theme.test.ts`,
+  `src/components/ThemeToggle.test.tsx`, `src/Utils/selectStyles.test.ts`, and
+  `src/Utils/chartTheme.test.tsx`. Screen-by-screen visual review in both
+  themes still requires a real Ambari Server.
+
 ## Backend API Comparison
 
 | Ember contract | React implementation | Static conclusion | Runtime gate |
